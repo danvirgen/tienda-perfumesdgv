@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Jean Paul Gaultier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .producto {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            width: 250px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #carrito {
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Perfumes Jean Paul Gaultier</h1>
+    <p>¡Agrega tus favoritos al carrito!</p>
+</header>
+
+<div class="container">
+    <div class="producto">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.NPLlXB_Ff6hZ-_AKjB9lRgHaHa&pid=Api" alt="Scandal Absolu">
+        <h2>Scandal Absolu 80ml</h2>
+        <p>$2,699.00 MXN</p>
+        <button onclick="agregarAlCarrito('Scandal Absolu 80ml', 2699)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+        <h2>Classique 100ml</h2>
+        <p>$2,199.00 MXN</p>
+        <button onclick="agregarAlCarrito('Classique 100ml', 2199)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+        <h2>Le Male Elixir 125ml</h2>
+        <p>$3,200.00 MXN</p>
+        <button onclick="agregarAlCarrito('Le Male Elixir 125ml', 3200)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+        <h2>Le Male Elixir Parfum 125ml</h2>
+        <p>$2,995.00 MXN</p>
+        <button onclick="agregarAlCarrito('Le Male Elixir Parfum 125ml', 2995)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+        <h2>Scandal EDT 100ml</h2>
+        <p>$3,320.00 MXN</p>
+        <button onclick="agregarAlCarrito('Scandal EDT 100ml', 3320)">Agregar al carrito</button>
+    </div>
+</div>
+
+<div id="carrito">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="lista-carrito"></ul>
+    <p><strong>Total:</strong> $<span id="total">0</span> MXN</p>
+</div>
+
+<script>
+    let total = 0;
+    const lista = document.getElementById("lista-carrito");
+    const totalSpan = document.getElementById("total");
+
+    function agregarAlCarrito(nombre, precio) {
+        const item = document.createElement("li");
+        item.textContent = `${nombre} - $${precio.toFixed(2)}`;
+        lista.appendChild(item);
+        total += precio;
+        totalSpan.textContent = total.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
